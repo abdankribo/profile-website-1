@@ -78,3 +78,44 @@ body{
 .button-dark:hover{
   background:linear-gradient(135deg,#292929,#080808);
 }
+
+
+/* Soft section transition: remove the hard horizontal cut between dark and light */
+.section-dark{
+  position:relative;
+  z-index:1;
+  overflow:visible;
+  margin-bottom:0;
+}
+.work{
+  position:relative;
+  z-index:0;
+  isolation:isolate;
+  overflow:visible;
+  padding-top:210px;
+  margin-top:-95px;
+}
+.work::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  right:0;
+  height:210px;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      to bottom,
+      #111 0%,
+      rgba(17,17,17,.94) 10%,
+      rgba(17,17,17,.72) 28%,
+      rgba(17,17,17,.38) 48%,
+      rgba(17,17,17,.12) 68%,
+      rgba(17,17,17,0) 100%
+    );
+}
+.work > *{
+  position:relative;
+  z-index:1;
+}
